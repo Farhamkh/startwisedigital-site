@@ -87,21 +87,3 @@
 /* Year in footer */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* Placeholder links to Google Form */
-(function () {
-  const links = [
-    document.getElementById('request-form-link'),
-    document.getElementById('request-form-link-footer'),
-    document.getElementById('custom-intake'),
-  ].filter(Boolean);
-
-  links.forEach((a) => {
-    a.addEventListener('click', (e) => {
-      const url = a.getAttribute('href');
-      if (url && url !== '#') return; // dev already replaced
-      e.preventDefault();
-      alert('Replace this button URL with your Google Form link when ready.');
-    });
-  });
-})();
-
