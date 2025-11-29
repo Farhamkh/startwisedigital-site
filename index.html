@@ -11,6 +11,8 @@
   <link rel="preload" href="assets/img/startwise-logo.png" as="image" />
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
+  <!-- Stripe Pricing Table (load once for all tables) -->
+  <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
 </head>
 
 <body>
@@ -25,13 +27,9 @@
 
     <nav class="nav">
       <a href="#services">Services</a>
+      <a href="#pricing">Checkout</a>
       <a href="#process">Process</a>
       <a href="#about">About</a>
-      <a class="btn btn-outline"
-        href="mailto:farham.dev@outlook.com?subject=Project%20Request%20%E2%80%94%20Startwise%20Digital">
-        Start request
-      </a>
-
     </nav>
     <button class="nav-toggle" aria-label="Open menu"><span></span></button>
   </header>
@@ -53,10 +51,8 @@
         <p class="hero-sub">You get full control of your website</p>
         <div class="cta reveal">
           <a class="btn"
-            href="mailto:farham.dev@outlook.com?subject=Project%20Request%20%E2%80%94%20Startwise%20Digital">
-            Start your request
-          </a>
-
+            href="mailto:farham.dev@outlook.com?subject=Project%20Request%20%E2%80%94%20Startwise%20Digital"
+            aria-label="Start your request via email">Start your request</a>
           <a class="btn btn-ghost"
             href="mailto:farham.dev@outlook.com?subject=Question%20about%20services%20%E2%80%94%20Startwise%20Digital"
             aria-label="Email questions only">Questions? Email me</a>
@@ -74,129 +70,189 @@
       </div>
     </section>
 
-
     <!-- SERVICES -->
     <section id="services" class="container section">
-      <h2 class="section-title reveal">Services &amp; pricing</h2>
-      <div class="grid services-grid">
-        <!-- Scoped fix so buttons are always clickable -->
-        <style>
-          #services {
-            position: relative;
-            z-index: 3;
-          }
+      <h2 class="section-title reveal">What You Get</h2>
 
-          #services .grid {
-            position: relative;
-          }
+      <div class="services-grid reveal">
+        <!-- 1 -->
+        <div class="service-card">
+          <div class="svc-icon" aria-hidden="true">
+            <!-- monitor icon -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path
+                d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-6v2h3a1 1 0 1 1 0 2H7a1 1 0 1 1 0-2h3v-2H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v7h14V7H5z" />
+            </svg>
+          </div>
+          <h3>Static Website Design</h3>
+          <p>Clean, fast static sites. Each Page includes up to four Sections, based on your tier.</p>
+        </div>
 
-          #services .card {
-            position: relative;
-            z-index: 2;
-            justify-content: flex-start;
-            /* keep content aligned at the top */
-          }
+        <!-- 2 -->
+        <div class="service-card">
+          <div class="svc-icon" aria-hidden="true">
+            <!-- globe icon -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path
+                d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2zm7.93 9h-3.11a15.7 15.7 0 0 0-1.3-5.01 8.03 8.03 0 0 1 4.41 5.01zM12 4c1.33 1.7 2.3 4.05 2.6 7h-5.2c.3-2.95 1.27-5.3 2.6-7zM6.48 5.99A15.7 15.7 0 0 0 5.18 11H2.07a8.03 8.03 0 0 1 4.41-5.01zM2.07 13h3.11c.26 1.77.8 3.5 1.3 5.01A8.03 8.03 0 0 1 2.07 13zM12 20c-1.33-1.7-2.3-4.05-2.6-7h5.2c-.3 2.95-1.27 5.3-2.6 7zm5.52-1.99c.5-1.51 1.04-3.24 1.3-5.01h3.11a8.03 8.03 0 0 1-4.41 5.01z" />
+            </svg>
+          </div>
+          <h3>Domain & DNS Setup</h3>
+          <p>I connect your domain and launch your site. Domain cost isn’t included and must be purchased under your
+            account.</p>
+        </div>
 
-          #services .card:hover {
-            z-index: 6;
-          }
+        <!-- 3 -->
+        <div class="service-card">
+          <div class="svc-icon" aria-hidden="true">
+            <!-- checklist icon -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path
+                d="M9 11h10a1 1 0 1 1 0 2H9a1 1 0 0 1 0-2zm0-6h10a1 1 0 1 1 0 2H9a1 1 0 0 1 0-2zm0 12h10a1 1 0 1 1 0 2H9a1 1 0 0 1 0-2z" />
+              <path
+                d="M6.3 5.3a1 1 0 0 1 1.4 1.4L6.4 8.99a1 1 0 0 1-1.42.02l-1.3-1.29a1 1 0 1 1 1.42-1.41l.59.58 1.01-1.59zM6.3 11.3a1 1 0 0 1 1.4 1.4L6.4 14.99a1 1 0 0 1-1.42.02l-1.3-1.29a1 1 0 1 1 1.42-1.41l.59.58 1.01-1.59z" />
+            </svg>
+          </div>
+          <h3>Included Iterations</h3>
+          <p>Free iteration(s) per tier. Each iteration is a single list with up to ten change items.</p>
+        </div>
 
-          /* hovered card above neighbors */
-          #services .card-foot,
-          #services .card .btn {
-            position: relative;
-            z-index: 7;
-            /* buttons above everything in the card */
-            pointer-events: auto;
-            /* ensure the anchor gets the click */
-          }
-        </style>
+        <!-- 4 -->
+        <div class="service-card">
+          <div class="svc-icon" aria-hidden="true">
+            <!-- chat icon -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z" />
+            </svg>
+          </div>
+          <h3>Consultation</h3>
+          <p>Standard includes a 15-minute consult; Premium includes 30 minutes. Extra consultation is available as an
+            add-on.</p>
+        </div>
 
-        <!-- Website Launch Package / Initial Build -->
-        <article class="card tilt reveal">
-          <header class="card-head">
-            <h3>Website Launch Package</h3>
-            <div class="price"><span class="major">$100</span> one-time</div>
-          </header>
-          <ul class="card-list">
-            <li>Initial Build: one single-page static website (3–4 sections, up to 5 images)</li>
-            <li>Basic structure, simple styling, and preliminary layout</li>
-            <li>Domain connection and launch using your own accounts</li>
-            <li>Includes one free iteration if requested within 14 days of prototype delivery</li>
-            <li>No backend, logins, databases, or custom apps — static-only build per Terms of Service</li>
-          </ul>
-        </article>
+        <!-- 5 -->
+        <div class="service-card">
+          <div class="svc-icon" aria-hidden="true">
+            <!-- layers icon -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path
+                d="M12 2l9 5-9 5-9-5 9-5zm-7.5 9.33L12 16l7.5-4.67 1.5.84L12 18.5 3 11.17l1.5-.84zm0 4L12 20l7.5-4.67 1.5.84L12 22.5 3 15.17l1.5-.84z" />
+            </svg>
+          </div>
+          <h3>Redesigns</h3>
+          <p>Premium includes one free redesign credit covering up to three Pages. Other tiers can purchase a redesign.
+          </p>
+        </div>
 
-        <!-- Support & Small Changes (instead of Tech Strategy & Custom Solutions) -->
-        <article class="card tilt reveal">
-          <header class="card-head">
-            <h3>Support &amp; Small Changes</h3>
-            <div class="price"><span class="major">$30</span> / 30 minutes</div>
-          </header>
-          <ul class="card-list">
-            <li>Short support sessions for tweaks, troubleshooting, or questions</li>
-            <li>Small edits, layout adjustments, or guidance after launch</li>
-            <li>Help reviewing your hosting, domain, and tool setup choices</li>
-            <li>Work limited to static-site scope (no backend systems, member logins, or custom apps)</li>
-          </ul>
-        </article>
-
-        <!-- Add-ons & Extras aligned with ToS -->
-        <article class="card tilt reveal">
-          <header class="card-head">
-            <h3>Add-ons &amp; Extras</h3>
-          </header>
-          <ul class="card-list">
-            <li>Small new static section (one-screen block) – <strong>$5 / section</strong></li>
-            <li>Additional iterations are $25 </li>
-            <li>Redesigns follow the standard $49 rate</li>
-            <li>All limits and definitions follow the official Terms of Service</li>
-          </ul>
-        </article>
+        <!-- 6 -->
+        <div class="service-card">
+          <div class="svc-icon" aria-hidden="true">
+            <!-- plus icon -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path d="M11 11V5a1 1 0 1 1 2 0v6h6a1 1 0 1 1 0 2h-6v6a1 1 0 1 1-2 0v-6H5a1 1 0 1 1 0-2h6z" />
+            </svg>
+          </div>
+          <h3>Add-Ons</h3>
+          <p>After you buy a tier, you can request New Pages, New Sections, extra iterations, consultation time, or a
+            redesign. I’ll send a payment link.</p>
+        </div>
       </div>
     </section>
 
 
-    <!-- DOMAIN HELP -->
-    <section id="domain-help" class="container section">
-      <h2 class="section-title reveal">Already bought a domain?</h2>
-      <p class="section-subtitle reveal">
-        If you already own a domain but aren’t sure what to do next, I can review your current setup,
-        cut unnecessary costs, and move you to a simpler, safer provider with proper privacy protection.
-      </p>
+
+    <!-- PRICING / STRIPE CHECKOUT -->
+    <section id="pricing" class="container section">
+      <h2 class="section-title reveal">Pay for your website</h2>
+
+      <!-- Website Design Package (single product) -->
+      <h3 class="reveal" style="margin-top:18px;">Website Design Package</h3>
+      <stripe-pricing-table pricing-table-id="prctbl_1SX6Vq0mCem4fKrK5VzrHbLi"
+        publishable-key="pk_live_51SP4910mCem4fKrKEDNitk0ppd3vZiLrxfhlGGrRWCX8hMtW50ghTQ59WQ5cw0vBktoa961m6C8AB2CsOFvQd32P000S7zPykE">
+      </stripe-pricing-table>
     </section>
 
     <!-- PROCESS -->
     <section id="process" class="container section">
-      <h2 class="section-title reveal">How we work</h2>
-      <ol class="steps">
+      <h2 class="section-title reveal">How We Work</h2>
 
-        <li class="step reveal">
-          <span class="step-num">1</span>
-          <h4>Tell me what you need</h4>
-          <p>Email me or use the request form to share your goal — usually a one-page static website, a simple landing
-            page, or help connecting your domain. No technical knowledge needed.</p>
-        </li>
+      <div class="timeline">
 
-        <li class="step reveal">
-          <span class="step-num">2</span>
-          <h4>We plan together</h4>
-          <p>We’ll do a quick 15-minute call over WhatsApp or Google Meet to plan your Initial Build, sections, and
-            content. We’ll also outline what fits the $100 package and what counts as paid add-ons like extra sections,
-            iterations, or redesigns.</p>
-        </li>
+        <!-- 1 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker">1</div>
+          <div class="timeline-card">
+            <h4>You choose a package & complete payment</h4>
+            <p>Select Starter, Standard, or Premium and check out securely through Stripe. I’m notified right away.</p>
+          </div>
+        </div>
 
-        <li class="step reveal">
-          <span class="step-num">3</span>
-          <h4>Delivery with full control</h4>
-          <p>I build your static site, connect your domain if needed, and launch it using accounts in your name. After
-            you approve the Initial Build, any further changes follow the iteration and redesign rules in the Terms of
-            Service.</p>
-        </li>
+        <!-- 2 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker">2</div>
+          <div class="timeline-card">
+            <h4>Personalized welcome email</h4>
+            <p>You’ll get a tier-specific email with your upload link (images, text, logos), what’s included for your
+              tier
+              (iterations/consultation/redesign for Premium), available add-ons, and simple instructions to request
+              extras.</p>
+          </div>
+        </div>
 
-      </ol>
+        <!-- 3 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker">3</div>
+          <div class="timeline-card">
+            <h4>Domain decision</h4>
+            <p>Want a new domain? I’ll check the live price and send a quick payment link; I’ll purchase it under an
+              account in your name. Already own one? I’ll connect it at launch.</p>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker">4</div>
+          <div class="timeline-card">
+            <h4>I begin your Initial Build</h4>
+            <p>Your static site prototype is created from your tier and assets. Typical delivery: <strong>3 business
+                days to 1 week</strong>.</p>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker">5</div>
+          <div class="timeline-card">
+            <h4>Review & refine</h4>
+            <p>Preview your prototype via email. Approve as-is, or use your included iteration(s). Premium can also use
+              the
+              free redesign credit (applies to the three pages in the tier).</p>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker">6</div>
+          <div class="timeline-card">
+            <h4>Add-ons anytime</h4>
+            <p>After you buy a tier, you can request extras—New Pages, New Sections, additional iterations, consultation
+              time,
+              or a redesign. I’ll send a payment link and complete the add-on after confirmation.</p>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker">7</div>
+          <div class="timeline-card">
+            <h4>Launch & handoff</h4>
+            <p>I deploy the site, connect your domain, and email a final handoff. Want a downloadable backup? I’ll
+              provide one on request.</p>
+          </div>
+        </div>
+
+      </div>
     </section>
-
 
     <!-- ABOUT -->
     <section id="about" class="container section">
@@ -204,24 +260,21 @@
         <div class="about-text reveal">
           <h2>About Startwise</h2>
           <p>
-            The web is full of amazing tools—but also a lot of unnecessary costs. I help people get connected to the
+            The web is full of amazing tools but also a lot of unnecessary costs. I help people get connected to the
             web <em>without</em> random add-ons and subscriptions. With a little research and a practical setup, you can
-            have a
-            beautiful, reliable site that doesn’t drain your budget.
+            have a beautiful, reliable site that doesn’t drain your budget.
           </p>
           <p>
             My goal is simple: give you the same efficient solutions a budget-minded developer would use for
-            themselves—clean,
-            fast, and easy to maintain.
+            themselves: Clean, fast, and easy to maintain.
           </p>
-          <p>You’ll always own your website completely — no subscriptions, no lock-ins, full control.</p>
+          <p>You’ll always own your website completely</p>
           <div class="about-cta">
             <a class="btn"
-              href="mailto:farham.dev@outlook.com?subject=Project%20Request%20%E2%80%94%20Startwise%20Digital">
+              href="mailto:farham.dev@outlook.com?subject=Project%20Request%20%E2%80%94%20Startwise%20Digital"
+              rel="noopener noreferrer">
               Start your request
             </a>
-
-
           </div>
         </div>
         <div class="about-art reveal tilt" aria-hidden="true">
@@ -244,21 +297,16 @@
         </div>
         <div class="footer-links">
           <a href="#services">Services</a>
+          <a href="#pricing">Checkout</a>
           <a href="#process">Process</a>
           <a href="#about">About</a>
           <a href="terms-of-service.pdf" target="_blank" rel="noopener">Terms of Service</a>
           <a href="privacy-policy.pdf" target="_blank" rel="noopener">Privacy Policy</a>
         </div>
 
-
         <div class="footer-cta">
           <a class="btn btn-small"
             href="mailto:farham.dev@outlook.com?subject=Project%20Inquiry%20%E2%80%94%20Startwise%20Digital">Email</a>
-          <a class="btn btn-small btn-ghost"
-            href="mailto:farham.dev@outlook.com?subject=Project%20Request%20%E2%80%94%20Startwise%20Digital">
-            Request form
-          </a>
-
         </div>
       </div>
       <p class="tiny fade">© <span id="year"></span> Startwise Digital LLC</p>
